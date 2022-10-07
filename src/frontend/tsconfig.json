@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "sourceMap": true,
+        "baseUrl": ".",
+        "target": "ES2015",
+        "types": [
+            "node"
+        ],
+        "module": "es2015",
+        "jsx": "react",
+        "moduleResolution": "node",
+        "lib": [
+            "es2015",
+            "dom"
+        ],
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+    },
+    "include": ["src/**/*"]
+}

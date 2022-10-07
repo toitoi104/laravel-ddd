@@ -1,3 +1,5 @@
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 const path = `${__dirname}/../public/bundles/`;
 
 module.exports = {
@@ -21,7 +23,15 @@ module.exports = {
                 test: /\.ts|.tsx$/,
                 // TypeScript をコンパイルする
                 use: [{ loader: "ts-loader" }],
-            }
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'postcss-loader', //追加
+                ],
+            },
         ]
     },
     // import 文で .ts ファイルを解決するため
@@ -30,4 +40,11 @@ module.exports = {
     },
     // ES5(IE11等)向けの指定（webpack 5以上で必要）
     target: ["web", "es5"],
+
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: './tailwind/index.css',
+        }),
+    ],
+
 };

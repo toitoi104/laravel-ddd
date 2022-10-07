@@ -7,7 +7,13 @@
 - PHP：8.1
 - React
 - TypeScript
+- mysql：8.0
 
+## 参考
+
+- https://github.com/ucan-lab/docker-laravel
+- https://ics.media/entry/16329/
+- https://zenn.dev/a_da_chi/articles/bd350f4bbebe9b
 
 ## 1.docker立ち上げ
 
@@ -45,4 +51,10 @@ $ npm install
 $ npm run build 
 or
 $ npm run build watch
+```
+
+## 4. tailwindコンパイル
+
+```
+npx tailwindcss -i ./tailwind/index.css -o ../public/bundles/tailwind.css --watch
 ```

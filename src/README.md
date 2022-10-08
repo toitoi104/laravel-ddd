@@ -31,16 +31,10 @@ $ docker compose exec app php artisan migrate
 ## 2. npmをインストール
 
 ```
-$ docker exec -i -t docker-laravel-web-1 bash
+$ docker exec -i -t docker-laravel-app-1 bash
 $ apt update
 $ node -v
 $ npm -v
-```
-
-## vimをインストール
-```
-$ apt-get update
-$ apt-get install vim
 ```
 
 ## 3. フロントエンドの環境を構築

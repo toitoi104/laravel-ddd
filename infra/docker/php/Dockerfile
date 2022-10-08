@@ -18,7 +18,9 @@ RUN apt-get update \
   && apt-get -y install --no-install-recommends \
     locales \
     git \
+    zip \
     unzip \
+    vim \
     libzip-dev \
     libicu-dev \
     libonig-dev \

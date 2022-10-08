@@ -52,3 +52,30 @@ $ npm run build watch
 ```
 npx tailwindcss -i ./tailwind/index.css -o ../public/bundles/tailwind.css --watch
 ```
+
+## 4. 自動整形(php-cs-fixer)
+
+- 参考：https://qiita.com/ucan-lab/items/7d4180462347a42009d5
+
+'''
+# 自動整形しない(差分表示のみ)
+$ ./tools/php-cs-fixer/vendor/bin/php-cs-fixer fix -v --diff --dry-run
+
+# 自動整形する
+$ ./tools/php-cs-fixer/vendor/bin/php-cs-fixer fix -v --diff
+'''
+
+## 5. コードの品質チェック larastan(php stan)
+
+- 設定ファイル：phpstan.neon.dist
+
+```
+./vendor/bin/phpstan analyse
+```
+
+- エラーを無視する方法
+
+```
+/** @phpstan-ignore-next-line */
+$hoge = $this->hogehoge();
+```

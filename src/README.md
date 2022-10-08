@@ -47,15 +47,21 @@ $ npm install
 $ npm run build 
 or
 $ npm run build watch
+or
+# script設定 tailwind もコンパイルする
+$ npm run build:watch
 ```
 
 ## 4. tailwindコンパイル
 
 ```bash
-npx tailwindcss -i ./tailwind/index.css -o ../public/bundles/tailwind.css --watch
+$ npx tailwindcss -i ./tailwind/index.css -o ../public/bundles/tailwind.css --watch
+or
+# script設定 
+$ npm run build:css
 ```
 
-## 4. 自動整形(php-cs-fixer)
+## 5. 自動整形(php-cs-fixer)
 
 - 参考：https://qiita.com/ucan-lab/items/7d4180462347a42009d5
 
@@ -67,7 +73,7 @@ $ ./tools/php-cs-fixer/vendor/bin/php-cs-fixer fix -v --diff --dry-run
 $ ./tools/php-cs-fixer/vendor/bin/php-cs-fixer fix -v --diff
 ```
 
-## 5. コードの品質チェック larastan(php stan)
+## 6. コードの品質チェック larastan(php stan)
 
 - 設定ファイル：phpstan.neon.dist
 
@@ -80,4 +86,11 @@ $ ./tools/php-cs-fixer/vendor/bin/php-cs-fixer fix -v --diff
 ```bash
 /** @phpstan-ignore-next-line */
 $hoge = $this->hogehoge();
+```
+
+## 7. dockerファイル変更の適用
+
+```angular2html
+$ docker compose build
+$ docker compose up -d
 ```

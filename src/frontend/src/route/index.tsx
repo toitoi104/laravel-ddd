@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Address from "../components/address/Address";
@@ -16,4 +16,6 @@ const App: React.FC = (): JSX.Element => {
     );
 };
 
-ReactDOM.render(<App />, document.getElementById('app'));
+const container = document.getElementById('app') as Element;
+const root = createRoot(container);
+root.render(<App />);

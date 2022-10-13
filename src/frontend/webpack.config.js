@@ -1,6 +1,8 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
 const path = `${__dirname}/../public/bundles/`;
+const dotenv = require('dotenv')
+const env = dotenv.config().parsed;
+const webpack = require("webpack");
 
 module.exports = {
     // モード値を production に設定すると最適化された状態で、
@@ -45,6 +47,8 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: './tailwind/index.css',
         }),
+        new webpack.DefinePlugin({
+            'process.env': JSON.stringify(env),
+        }),
     ],
-
 };

@@ -3,7 +3,6 @@ import axios from 'axios';
 import Head from "../meta/Head";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 
-
 const Address: React.FC<{}> = (): JSX.Element => {
     const TITLE = '緯度軽度計算';
 
@@ -16,8 +15,6 @@ const Address: React.FC<{}> = (): JSX.Element => {
 
 const AddressForm: React.FC<{}> = (): JSX.Element => {
     const API_URL_GEOCODE = 'https://maps.googleapis.com/maps/api/geocode/json';
-    //IP制限しているが、利用が終わったらキーを削除する 2022/10/08
-    const GOOGLE_API_KEY = 'AIzaSyAeduATC-L9uZ7arrABJYUvDd1Qm_1kW4o';
 
     const [searchWord, setSearchWord] = useState<string>('')
     const [address, setAddress] = useState<string>('')
@@ -28,13 +25,13 @@ const AddressForm: React.FC<{}> = (): JSX.Element => {
         width: "400px",
         height: "400px"
     };
-    
+
     const search = (e: any) => {
         e.preventDefault();
 
         const params = {
             address: searchWord,
-            key: GOOGLE_API_KEY,
+            key: process.env.REACT_APP_GOOGLE_API_KEY,
         }
 
         axios.get(API_URL_GEOCODE, {params: params})
@@ -91,9 +88,8 @@ const AddressForm: React.FC<{}> = (): JSX.Element => {
                 <li>緯度：{lng}</li>
             </ul>
         </div>
-
         <div className='flex justify-center py-5'>
-            <LoadScript googleMapsApiKey={GOOGLE_API_KEY}>
+            <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_API_KEY as string}>
                 <GoogleMap
                     mapContainerStyle={containerStyle}
                     center={center}

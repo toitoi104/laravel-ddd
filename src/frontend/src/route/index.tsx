@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
-import { createRoot } from 'react-dom/client';
+import React from "react";
+import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Address from "../components/address/Address";
 import Hello from "../components/hello/Hello";
 
 const App: React.FC = (): JSX.Element => {
@@ -10,12 +9,11 @@ const App: React.FC = (): JSX.Element => {
         <BrowserRouter>
             <Routes>
                 <Route path="hello" element={<Hello />} />
-                <Route path="address" element={<Address />} />
             </Routes>
         </BrowserRouter>
     );
 };
 
-const container = document.getElementById('app') as Element;
+const container = document.getElementById("app") as Element;
 const root = createRoot(container);
 root.render(<App />);

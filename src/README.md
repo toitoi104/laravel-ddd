@@ -4,9 +4,11 @@
 
 - docker
 - Laravel：最新
-- PHP：8.1
+- PHP：8.2
 - React
 - TypeScript
+- ESLint
+- Prettier
 - mysql：8.0
 - php cs fixer
 - larastan(phpstan)
